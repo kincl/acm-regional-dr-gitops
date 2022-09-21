@@ -4,4 +4,4 @@ metadata:
   name: openshift-cert-manager-operator
   namespace: openshift-cert-manager-operator
 spec:
-  updateStrategy: Default
+  upgradeStrategy: Default
