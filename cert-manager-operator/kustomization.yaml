@@ -6,3 +6,4 @@ resources:
 - operatorgroup.yaml
 - subscription.yaml
 - credentialsrequest.yaml
+- clusterissuer-letsencrypt.yaml

@@ -9,10 +9,9 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-account-key
     solvers:
-    # - http01:
-    #     ingress: {}
     - dns01:
-        digitalocean:
-          tokenSecretRef:
-            name: digitalocean-dns
-            key: access-token
+        route53:
+          accessKeyID: AKIAIOSFODNN7EXAMPLE
+          secretAccessKeySecretRef:
+            name: prod-route53-credentials-secret
+            key: secret-access-key
