@@ -9,6 +9,10 @@ metadata:
   namespace: openshift-storage
 spec: 
   manageNodes: false
+  labelSelector:
+    matchExpressions:
+      - {key: node-role.kubernetes.io/worker, operator: Exists}
+      - {key: submariner.io/gateway, operator: NotIn, values: [true]}
   monPVCTemplate: 
     spec: 
       accessModes: 
