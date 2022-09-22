@@ -11,6 +11,7 @@ spec:
     solvers:
     - dns01:
         route53:
+          hostedZoneID: Z06685503SLODZT856H5B
           region: us-east2
           secretAccessKeySecretRef:
             name: cloud-credentials
