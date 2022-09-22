@@ -1,39 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: multicluster-gitops
+  name: openshift-gitops
+  namespace: openshift-gitops
 spec:
-  controller:
-    appSync: 1m
-  applicationSet:
+  server:
     resources:
       limits:
-        cpu: '2'
-        memory: 1Gi
+        cpu: 1
+        memory: 256Mi
       requests:
-        cpu: 250m
-        memory: 512Mi
-  extraConfig:
-    kustomize.buildOptions: '--enable-helm'
-  rbac:
-    defaultPolicy: ''
-    policy: |
-      g, cluster-admins, role:admin
-    scopes: '[groups]'
-  resourceExclusions: |
-    - apiGroups:
-      - tekton.dev
-      clusters:
-      - '*'
-      kinds:
-      - TaskRun
-      - PipelineRun  
-  server:
+        cpu: 125m
+        memory: 128Mi
     route:
       enabled: true
       tls:
         termination: reencrypt
-  sso:
-    dex:
-      openShiftOAuth: true
-    provider: dex
