@@ -9,9 +9,8 @@ resources:
 helmCharts:
 - name: cert-manager
   includeCRDs: true
-  # valuesInline:
-  #   updateStrategy:
-  #     type: Recreate
+  valuesInline:
+    installCRDs: true
   releaseName: cert-manager
   namespace: cert-manager
   version: v1.9.1
