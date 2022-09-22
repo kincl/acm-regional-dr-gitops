@@ -29,3 +29,15 @@ The ApplicationSets are in the `applications/` directory.
 | cert-manager.yaml | Deploys cert-manager with upstream Helm chart (needed because we need v1.9.1) from `cert-manager/` |
 | cluster-certificates.yaml | Uses cert-manager to get signed certificates for cluster default ingress controller from `cluster-certificates/` |
 | odf-operator.yaml | Deploys ODF from `odf/` |
+
+## cert-manager
+
+I had to use the upstream helm chart instead of our openshift-cert-manager-operator because I needed access to a feature released in v1.9.1 which lets us use a secret object reference for the AWS Key ID in the ClusterIssuer which we needed because we are using the cluster-credential-operator to build a IAM role for cert-manager to do DNS-based ACME with LetsEncrypt
+
+The cert-manager deployment has some options to deal with the split-horizon DNS that is implemented in our OpenShift AWS deployment, detail: https://github.com/cert-manager/cert-manager/issues/1627
+
+## ODF
+
+Works really well, I used this KCS article to put together the resources: https://access.redhat.com/articles/5683981
+
+Upstream doc: https://access.redhat.com/documentation/en-us/red_hat_openshift_data_foundation/4.11/html-single/deploying_openshift_data_foundation_using_amazon_web_services/index#deploy-using-dynamic-storage-devices-aws
