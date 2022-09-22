@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
 - certificate-ingress.yaml
+
+bases:
+- ../openshift-ingress
