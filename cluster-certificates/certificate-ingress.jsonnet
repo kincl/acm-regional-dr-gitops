@@ -8,8 +8,8 @@ function(cluster, domain) [
     },
     spec: {
       secretName: 'letsencrypt-ingress',
-      duration: '2160h',
-      renewBefore: '360h',
+      duration: '2160h0m0s',
+      renewBefore: '360h0m0s',
       commonName: '*.apps.' + cluster + '.' + domain,
       usages: [
         'server auth',
