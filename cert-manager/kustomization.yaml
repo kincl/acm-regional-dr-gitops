@@ -11,6 +11,9 @@ helmCharts:
   includeCRDs: true
   valuesInline:
     installCRDs: true
+    extraArgs:
+    - --dns01-recursive-nameservers-only
+    - --dns01-self-check-nameservers=8.8.8.8:53
   releaseName: cert-manager
   namespace: cert-manager
   version: v1.9.1
