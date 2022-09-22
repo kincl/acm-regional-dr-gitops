@@ -16,3 +16,5 @@ spec:
       enabled: true
       tls:
         termination: reencrypt
+  extraConfig:
+    kustomize.buildOptions: '--enable-helm'
