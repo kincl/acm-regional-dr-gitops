@@ -11,6 +11,7 @@ spec:
     solvers:
     - dns01:
         route53:
+          region: us-east2
           accessKeyID: AKIAIOSFODNN7EXAMPLE
           secretAccessKeySecretRef:
             name: prod-route53-credentials-secret
