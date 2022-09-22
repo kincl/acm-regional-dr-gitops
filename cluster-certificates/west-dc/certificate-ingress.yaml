@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: letsencrypt-ingress
+  namespace: openshift-ingress
+spec:
+  secretName: letsencrypt-ingress
+  duration: 2160h0m0s # 90d
+  renewBefore: 360h0m0s # 15d
+  # The use of the common name field has been deprecated since 2000 and is
+  # discouraged from being used.
+  commonName: "*.apps.west-dc.sandbox2048.opentlc.com"
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - "*.apps.west-dc.sandbox2048.opentlc.com"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
