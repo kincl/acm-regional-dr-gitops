@@ -6,6 +6,8 @@ aka gitops for testing ODF Regional-DR
 
 The hub cluster needs to be configured with items in `acm-gitops/` directory.
 
+Upstream doc: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.6/html/applications/managing-applications#prerequisites-argo
+
 | File | Purpose |
 | ---- | ------- |
 | argocd.yaml | Changes to the OpenShift GitOps cluster install of Argo CD |
