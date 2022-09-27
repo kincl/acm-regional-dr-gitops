@@ -1,0 +1,9 @@
+apiVersion: operator.openshift.io/v1alpha1
+kind: ImageContentSourcePolicy
+metadata:
+  name: override-submariner-nettest
+spec:
+  repositoryDigestMirrors:
+  - mirrors:
+    - registry.redhat.io/rhacm2/nettest-rhel8
+    source: registry.redhat.io/rhacm2/nettest

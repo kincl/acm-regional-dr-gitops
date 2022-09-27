@@ -7,3 +7,4 @@ resources:
 - argocd.yaml
 - placement.yaml
 - gitopscluster.yaml
+- imagecontentsourcepolicy.yaml
