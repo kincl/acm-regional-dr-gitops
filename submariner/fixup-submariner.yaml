@@ -13,7 +13,7 @@ spec:
       files:
         - contents:
             compression: gzip
-            source: data:;base64,H4sIAAAAAAAC/5TNMQrDMAyF4d2neHi3A5265CQhg5soscCxiqyhvn1JS+mc8cH/+KZJaedm2ufZAU+ljV8Y4b0DiizJWOq5f1lUWnOyyDJoTstxGyqZUbPzcLCqaHj0sPJOzYLU0jFiS6WRc8Cfi9/2o16UgmYqd+/eAQAA//82eljDvAAAAA==
+            source: data:;base64,H4sIAAAAAAAC/1TNTQ6CMBDF8X1PMWFPQd2ZcBLCYoABJumHTgdjb2+qQePyJf+XX98LrZxU8jAYgJvQwk/ooKoMgIsTKsdQ9pFZoXlDtRwb2XDy5yaQKiW9Plp7uti2HD2LRKnHXM+8UtI6BpehgwVdImMAfqz9tG/9X7zvmAuT9tGjcCD5Uof0CgAA//+On9j0vgAAAA==
           mode: 420
           overwrite: true
           path: /etc/containers/registries.conf.d/fixup-submariner.conf
