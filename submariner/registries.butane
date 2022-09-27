@@ -1,0 +1,14 @@
+variant: openshift
+version: 4.10.0
+metadata:
+  name: 100-fixup-submariner
+  labels:
+    machineconfiguration.openshift.io/role: worker
+
+storage:
+  files:
+  - path: /etc/containers/registries.conf.d/fixup-submariner.conf
+    mode: 0644
+    overwrite: true
+    contents:
+      local: registries.conf
