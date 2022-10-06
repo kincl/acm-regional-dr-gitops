@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cloud-metadata-service
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: cloud-metadata-service-placement
+        requeueAfterSeconds: 30
+  template:
+    metadata:
+      name: cloud-metadata-service-{{name}}
+      labels:
+        velero.io/exclude-from-backup: "true"
+    spec:
+      destination:
+        namespace: provider
+        server: "{{server}}"
+      project: default
+      source:
+        path: cloud-metadata-service/{{name}}
+        repoURL: https://github.com/kincl/multicluster-gitops.git
+        targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
+---
+apiVersion: cluster.open-cluster-management.io/v1alpha1
+kind: Placement
+metadata:
+  name: cloud-metadata-service-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+    - east-west-dr
