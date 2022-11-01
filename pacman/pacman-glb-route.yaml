@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: pacman-glb
+  labels:
+    app.kubernetes.io/name: pacman
+spec:
+  host: pacman.apps.ocp-dr-acm-hub.sandbox2048.opentlc.com
+  to:
+    kind: Service
+    name: pacman
