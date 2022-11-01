@@ -1,5 +1,5 @@
 resources:
-- project.yaml
+# - project.yaml
 - mongo-pvc.yaml
 - mongo-deployment.yaml
 - mongo-service.yaml
