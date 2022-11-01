@@ -1,8 +1,9 @@
-apiVersion: project.openshift.io/v1
-kind: Project
+apiVersion: v1
+kind: Namespace
 metadata:
   annotations:
     openshift.io/sa.scc.mcs: s0:c28,c7
     openshift.io/sa.scc.supplemental-groups: 1111110000/10000
     openshift.io/sa.scc.uid-range: 1111110000/10000
   name: pacman
+spec: {}
