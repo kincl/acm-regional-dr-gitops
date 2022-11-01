@@ -1,7 +1,9 @@
 resources:
+- ns.yaml
 - mongo-pvc.yaml
 - mongo-deployment.yaml
 - mongo-service.yaml
 - pacman-deployment.yaml
 - pacman-service.yaml
 - pacman-route.yaml
+- pacman-glb-route.yaml
