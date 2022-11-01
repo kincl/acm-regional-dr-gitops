@@ -6,4 +6,3 @@ metadata:
     openshift.io/sa.scc.supplemental-groups: 1111110000/10000
     openshift.io/sa.scc.uid-range: 1111110000/10000
   name: pacman
-spec: {}
