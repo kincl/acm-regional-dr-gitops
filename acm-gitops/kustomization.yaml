@@ -5,5 +5,7 @@ namespace: openshift-gitops
 
 resources:
 - argocd.yaml
+
+- managedclustersetbinding.yaml
 - placement.yaml
 - gitopscluster.yaml
