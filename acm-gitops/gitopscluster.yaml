@@ -10,6 +10,7 @@ apiVersion: apps.open-cluster-management.io/v1beta1
 kind: GitOpsCluster
 metadata:
   name: argo-acm-importer
+  namespace: openshift-gitops
 spec:
   argoServer:
     cluster: notused
