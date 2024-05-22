@@ -1,2 +1,3 @@
 resources:
 - ns.yaml
+- pacman-glb-route.yaml
