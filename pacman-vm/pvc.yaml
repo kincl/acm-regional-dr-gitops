@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: centos-test
+  name: pacman
   labels:
-    app: centos-test
+    app: pacman
 spec:
   dataSourceRef:
     apiGroup: cdi.kubevirt.io

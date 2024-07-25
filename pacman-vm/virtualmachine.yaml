@@ -1,9 +1,9 @@
 apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
-  name: centos-test
+  name: pacman
   labels:
-    app: centos-test 
+    app: pacman
 spec:
   running: true
   template:
@@ -12,7 +12,7 @@ spec:
         vm.kubevirt.io/os: centos-stream9
         vm.kubevirt.io/workload: server
       labels:
-        kubevirt.io/domain: centos-test
+        kubevirt.io/domain: pacman
         kubevirt.io/size: small
         network.kubevirt.io/headlessService: headless
     spec:
@@ -45,7 +45,7 @@ spec:
         pod: {}
       volumes:
       - persistentVolumeClaim:
-          claimName: centos-test
+          claimName: pacman
         name: rootdisk
       - cloudInitNoCloud:
           userData: |-
