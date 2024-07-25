@@ -73,7 +73,7 @@ spec:
                     name: google-client-secret
                   hostedDomain: redhat.com
                 mappingMethod: claim
-                name: google
+                name: Google
                 type: Google
 
         remediationAction: enforce
