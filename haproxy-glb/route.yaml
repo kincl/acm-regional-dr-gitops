@@ -1,0 +1,35 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: haproxy-glb
+  labels:
+    app: haproxy-glb
+spec:
+  host: pacman.apps.rosa.hub.yv2j.p3.openshiftapps.com
+  to:
+    kind: Service
+    name: haproxy-glb
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: haproxy-glb-stats
+  labels:
+    app: haproxy-glb
+spec:
+  host: pacman-stats.apps.rosa.hub.yv2j.p3.openshiftapps.com
+  to:
+    kind: Service
+    name: haproxy-glb
+    weight: 100
+  port:
+    targetPort: stats
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect

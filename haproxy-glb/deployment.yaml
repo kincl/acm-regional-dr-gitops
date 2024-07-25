@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haproxy-glb
+  labels:
+    app: haproxy-glb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: haproxy-glb
+  template:
+    metadata:
+      labels:
+        app: haproxy-glb
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - image: docker.io/haproxy:lts
+        name: haproxy
+        volumeMounts:
+        - name: config
+          mountPath: /usr/local/etc/haproxy
+      volumes:
+      - name: config
+        configMap:
+          name: haproxy-glb-config
