@@ -1,0 +1,9 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: cluster
+spec:
+  backgroundColor: '#F7823C'
+  color: white
+  location: BannerTop
+  text: cluster-east
