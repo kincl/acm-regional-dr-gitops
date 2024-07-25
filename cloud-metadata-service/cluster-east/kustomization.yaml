@@ -11,4 +11,4 @@ patches:
   patch: |-
     - op: add
       path: /spec/template/spec/containers/0/env
-      value: [{"name": "CLOUDNAME", "value": "east-dc"},{"name": "ZONE", "value": "none"}]
+      value: [{"name": "CLOUDNAME", "value": "cluster-east"},{"name": "ZONE", "value": "none"}]
