@@ -3,13 +3,16 @@ kind: PersistentVolumeClaim
 metadata:
   name: centos-test
   labels:
-    app: centos-test 
-    placement: vm-placement-1
+    app: centos-test
 spec:
+  dataSourceRef:
+    apiGroup: cdi.kubevirt.io
+    kind: VolumeImportSource
+    name: centos-source
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: 50Gi
   storageClassName: ocs-storagecluster-ceph-rbd-virtualization
-  volumeMode: Filesystem
+  volumeMode: Block

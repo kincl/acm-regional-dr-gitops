@@ -6,3 +6,4 @@ namespace: testing
 resources:
 - virtualmachine.yaml
 - pvc.yaml
+- source.yaml

@@ -1,0 +1,45 @@
+apiVersion: cluster.open-cluster-management.io/v1beta1
+kind: Placement
+metadata:
+  name: pacman-placement
+  namespace: openshift-gitops
+spec:
+  clusterSets:
+  - default
+  numberOfClusters: 1
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pacman-vm
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: pacman-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: pacman-{{name}}
+      labels:
+        velero.io/exclude-from-backup: "true"
+    spec:
+      destination:
+        namespace: testing
+        server: "{{server}}"
+      project: default
+      sources:
+        - path: pacman-vm
+          repoURL: https://github.com/kincl/acm-regional-dr-gitops.git
+          targetRevision: main
+          repositoryType: git
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
