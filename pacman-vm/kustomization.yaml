@@ -7,3 +7,5 @@ resources:
 - virtualmachine.yaml
 - pvc.yaml
 - source.yaml
+- route.yaml
+- service.yaml
