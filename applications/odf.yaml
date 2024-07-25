@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: odf-operator
+  name: odf
   namespace: openshift-gitops
 spec:
   generators:
@@ -9,13 +9,13 @@ spec:
       configMapRef: acm-placement
       labelSelector:
         matchLabels:
-          cluster.open-cluster-management.io/placement: cert-manager-placement
+          cluster.open-cluster-management.io/placement: hub-placement
       requeueAfterSeconds: 30
   template:
     metadata:
       labels:
         velero.io/exclude-from-backup: "true"
-      name: odf-operator-{{name}}
+      name: odf-{{name}}
     spec:
       destination:
         namespace: openshift-storage
@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         path: odf
-        repoURL: https://github.com/kincl/multicloud-gitops.git
+        repoURL: https://github.com/kincl/acm-regional-dr-gitops.git
         targetRevision: main
       syncPolicy:
         automated:
