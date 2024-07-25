@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         path: cert-manager
-        repoURL: https://github.com/kincl/multicloud-gitops.git
+        repoURL: https://github.com/kincl/acm-regional-dr-gitops.git
         targetRevision: main
       syncPolicy:
         automated:
