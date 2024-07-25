@@ -9,7 +9,7 @@ spec:
       configMapRef: acm-placement
       labelSelector:
         matchLabels:
-          cluster.open-cluster-management.io/placement: cert-manager-placement
+          cluster.open-cluster-management.io/placement: hub-placement
       requeueAfterSeconds: 30
   template:
     metadata:
