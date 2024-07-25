@@ -28,7 +28,7 @@ spec:
         velero.io/exclude-from-backup: "true"
     spec:
       destination:
-        namespace: testing
+        namespace: pacman
         server: "{{server}}"
       project: default
       sources:
