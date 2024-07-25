@@ -4,6 +4,7 @@ metadata:
   name: letsencrypt
   annotations:
     argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
   acme:
     email: jason@kincl.dev
