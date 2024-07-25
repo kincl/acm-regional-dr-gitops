@@ -45,10 +45,11 @@ spec:
       apiVersion: policy.open-cluster-management.io/v1
       kind: ConfigurationPolicy
       metadata:
-        name: secrets
+        name: google-authn
       spec:
+        remediationAction: enforce
+        severity: low
         object-templates:
-
         - complianceType: musthave
           objectDefinition:
             apiVersion: v1
@@ -76,5 +77,35 @@ spec:
                 name: Google
                 type: Google
 
+  - objectDefinition:
+      apiVersion: policy.open-cluster-management.io/v1
+      kind: ConfigurationPolicy
+      metadata:
+        name: google-authz
+      spec:
         remediationAction: enforce
         severity: low
+        object-templates:
+        - complianceType: musthave
+          objectDefinition:
+            kind: ClusterRoleBinding
+            apiVersion: rbac.authorization.k8s.io/v1
+            metadata:
+              name: oauth-cluster-admin
+            subjects:
+              - kind: Group
+                apiGroup: rbac.authorization.k8s.io
+                name: cluster-admins
+            roleRef:
+              apiGroup: rbac.authorization.k8s.io
+              kind: ClusterRole
+              name: cluster-admin
+
+        - complianceType: musthave
+          objectDefinition:
+            kind: Group
+            apiVersion: user.openshift.io/v1
+            metadata:
+              name: cluster-admins
+            users:
+              - jkincl@redhat.com
