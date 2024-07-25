@@ -9,7 +9,7 @@ spec:
       configMapRef: acm-placement
       labelSelector:
         matchLabels:
-          cluster.open-cluster-management.io/placement: cert-manager-placement
+          cluster.open-cluster-management.io/placement: hub-placement
       requeueAfterSeconds: 30
   template:
     metadata:
@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         path: cluster-certificates/{{name}}
-        repoURL: https://github.com/kincl/multicloud-gitops.git
+        repoURL: https://github.com/kincl/acm-regional-dr-gitops.git
         targetRevision: main
       syncPolicy:
         automated:

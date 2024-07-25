@@ -9,12 +9,12 @@ spec:
   renewBefore: 360h0m0s # 15d
   # The use of the common name field has been deprecated since 2000 and is
   # discouraged from being used.
-  commonName: "*.apps.ocp-dr-acm-hub.sandbox2048.opentlc.com"
+  commonName: "*.apps.cluster-west.sandbox347.opentlc.com"
   usages:
     - server auth
     - client auth
   dnsNames:
-    - "*.apps.ocp-dr-acm-hub.sandbox2048.opentlc.com"
+    - "*.apps.cluster-west.sandbox347.opentlc.com"
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
