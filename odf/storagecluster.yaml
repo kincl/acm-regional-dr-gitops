@@ -11,8 +11,7 @@ spec:
   manageNodes: false
   labelSelector:
     matchExpressions:
-      - {key: node-role.kubernetes.io/worker, operator: Exists}
-      - {key: submariner.io/gateway, operator: NotIn, values: ['true']}
+      - {key: node-role.kubernetes.io/storage, operator: Exists}
   monPVCTemplate: 
     spec: 
       accessModes: 
