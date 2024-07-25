@@ -3,18 +3,8 @@ kind: Kustomization
 
 resources:
 - namespace.yaml
+- operatorgroup.yaml
+- subscription.yaml
 - credentialsrequest.yaml
 - clusterissuer-letsencrypt.yaml
-
-helmCharts:
-- name: cert-manager
-  includeCRDs: true
-  valuesInline:
-    installCRDs: true
-    extraArgs:
-    - --dns01-recursive-nameservers-only
-    - --dns01-recursive-nameservers=8.8.8.8:53
-  releaseName: cert-manager
-  namespace: cert-manager
-  version: v1.9.1
-  repo: https://charts.jetstack.io
+- cert-manager.yaml

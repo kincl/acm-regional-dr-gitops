@@ -11,11 +11,10 @@ spec:
     solvers:
     - dns01:
         route53:
-          hostedZoneID: Z06685503SLODZT856H5B
-          region: us-east2
-          secretAccessKeySecretRef:
-            name: cloud-credentials
-            key: aws_secret_access_key
+          region: us-east-2
           accessKeyIDSecretRef:
-            name: cloud-credentials
+            name: aws-creds
             key: aws_access_key_id
+          secretAccessKeySecretRef:
+            name: aws-creds
+            key: aws_secret_access_key
