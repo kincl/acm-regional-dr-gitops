@@ -22,3 +22,9 @@ Uploading data completed successfully, waiting for processing to complete, you c
 Processing completed successfully
 Uploading CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2 completed successfully
 ```
+
+## Resources
+
+- https://github.com/RamenDR/ocm-ramen-samples/blob/98ffce56163ad38b5ec0eb0a771c0bd2fbdc381f/workloads/kubevirt/vm-pvc/base/pvc.yaml
+- https://docs.redhat.com/en/documentation/red_hat_openshift_data_foundation/4.16/html-single/configuring_openshift_data_foundation_disaster_recovery_for_openshift_workloads/index
+- https://access.redhat.com/articles/7041594#6-using-openshift-gitops-with-openshift-virtualization-in-dr-scenarios-24
