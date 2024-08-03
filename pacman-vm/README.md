@@ -23,6 +23,14 @@ Processing completed successfully
 Uploading CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2 completed successfully
 ```
 
+## configuration in vm
+
+```
+podman pod create -p 8080:8080 --name pacman
+podman run -dt -v /srv:/bitnami/mongodb --name mongodb --pod pacman bitnami/mongodb:5.0.9
+podman run -dt --name pacman-app --pod pacman quay.io/jpacker/nodejs-pacman-app:latest
+```
+
 ## Resources
 
 - https://github.com/RamenDR/ocm-ramen-samples/blob/98ffce56163ad38b5ec0eb0a771c0bd2fbdc381f/workloads/kubevirt/vm-pvc/base/pvc.yaml
