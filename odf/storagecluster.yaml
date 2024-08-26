@@ -12,7 +12,7 @@ spec:
   manageNodes: false
   labelSelector:
     matchExpressions:
-      - {key: node-role.kubernetes.io/storage, operator: Exists}
+      - {key: node-role.kubernetes.io/worker, operator: Exists}
   monPVCTemplate: 
     spec: 
       accessModes: 
