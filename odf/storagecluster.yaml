@@ -10,6 +10,7 @@ metadata:
 spec:
   enableCephTools: true
   manageNodes: false
+  flexibleScaling: true
   labelSelector:
     matchExpressions:
       - {key: node-role.kubernetes.io/worker, operator: Exists}
