@@ -22,7 +22,7 @@ spec:
         server: '{{server}}'
       project: default
       source:
-        path: odf
+        path: odf/{{name}}
         repoURL: https://github.com/kincl/acm-regional-dr-gitops.git
         targetRevision: main
       syncPolicy:
