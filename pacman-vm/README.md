@@ -1,5 +1,14 @@
 # Pacman in VM
 
+## configuration in vm
+
+```
+podman pod create -p 8080:8080 --name pacman
+podman run -dt -v /srv:/bitnami/mongodb --name mongodb --pod pacman bitnami/mongodb:5.0.9
+podman run -dt --name pacman-app --pod pacman quay.io/jpacker/nodejs-pacman-app:latest
+```
+
+## old config, now not needed with source.yaml
 - Get latest CentOS Stream 9 VM image
 
 ```
@@ -21,14 +30,6 @@ Uploading data to https://cdi-uploadproxy-openshift-cnv.apps.cluster-west.sandbo
 Uploading data completed successfully, waiting for processing to complete, you can hit ctrl-c without interrupting the progress
 Processing completed successfully
 Uploading CentOS-Stream-GenericCloud-x86_64-9-latest.x86_64.qcow2 completed successfully
-```
-
-## configuration in vm
-
-```
-podman pod create -p 8080:8080 --name pacman
-podman run -dt -v /srv:/bitnami/mongodb --name mongodb --pod pacman bitnami/mongodb:5.0.9
-podman run -dt --name pacman-app --pod pacman quay.io/jpacker/nodejs-pacman-app:latest
 ```
 
 ## Resources
